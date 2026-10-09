@@ -4,39 +4,39 @@ local RunService = game:GetService("RunService")
 local LocalPlayer = game:GetService("Players").LocalPlayer
 local Mouse = LocalPlayer:GetMouse()
 local HttpService = game:GetService("HttpService")
-
 local ShtermoBiblio = {
- Elements = {},
- ThemeObjects = {},
- Connections = {},
- Flags = {},
- Themes = {
-    Default = {
-    -- Тёмно-серые фоновые элементы (оригинальные 25, 25, 35 -> уменьшены на 30%)
-    Main = Color3.fromRGB(18, 18, 25), 
+    Elements = {},
+    ThemeObjects = {},
+    Connections = {},
+    Flags = {},
     
-    -- Панели и кнопки (оригинальные 32, 32, 42 -> уменьшены на 30%)
-    Second = Color3.fromRGB(22, 22, 29), 
+    Themes = {
+        Default = {
+            -- Тёмно-серые фоновые элементы (оригинальные 25, 25, 35 -> уменьшены на 30%)
+            Main = Color3.fromRGB(18, 18, 25), 
+            
+            -- Панели и кнопки (оригинальные 32, 32, 42 -> уменьшены на 30%)
+            Second = Color3.fromRGB(22, 22, 29), 
+            
+            -- Границы и обводка (оригинальные 37, 37, 47 -> уменьшены на 30%)
+            Stroke = Color3.fromRGB(26, 26, 33), 
+            
+            -- Яркий фиолетовый разделитель/полосы (оригинальные 60, 60, 70 -> уменьшены на 30%)
+            Divider = Color3.fromRGB(42, 42, 49), 
+            
+            -- Основной неоново-голубой текст
+            Text = Color3.fromRGB(0, 255, 255), 
+            
+            -- Второстепенный темный текст и подсказки (оригинальные 150, 150, 150 * 0.7)
+            TextDark = Color3.fromRGB(105, 105, 105) 
+        } -- Закрытие таблицы "Default"
+    }, -- Закрытие таблицы "Themes"
     
-    -- Границы и обводка (оригинальные 37, 37, 47 -> уменьшены на 30%)
-    Stroke = Color3.fromRGB(26, 26, 33), 
-    
-    -- Яркий фиолетовый разделитель/полосы (оригинальные 60, 60, 70 -> уменьшены на 30%)
-    -- Если нужен неоново-малиновый акцент: Color3.fromRGB(178, 29, 178)
-    Divider = Color3.fromRGB(42, 42, 49), 
-    
-    -- Основной неоново-голубой текст, как на твоем скриншоте (оригинальные 240, 240, 240 -> заменено на голубой акцент)
-    Text = Color3.fromRGB(0, 255, 255), 
-    
-    -- Второстепенный темный текст и подсказки (оригинальные 150, 150, 150 * 0.7)
-    TextDark = Color3.fromRGB(105, 105, 105) 
-}
+    SelectedTheme = "Default",
+    Folder = nil,
+    SaveCfg = false
+} -- Закрытие главной таблицы "ShtermoBiblio"
 
- },
- SelectedTheme = "Default",
- Folder = nil,
- SaveCfg = false
-}
 
 local Icons = {}
 
