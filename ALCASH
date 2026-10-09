@@ -1,0 +1,62 @@
+local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/jensonhirst/Orion/main/source"))() 
+local Window = OrionLib:MakeWindow({
+    Name = "Trax Spawner | Система ключей",
+    HidePremium = false,
+    SaveSettings = false,
+    IntroEnabled = true,
+    IntroText = "Trax Spawner"
+})
+
+local tab1 = Window:MakeTab({
+    Name = "Получить ключ",
+    Icon = "rbxassetid://104229924295526",
+    PremiumOnly = false
+})
+
+local tab2 = Window:MakeTab({
+    Name = "Погасить",
+    Icon = "rbxassetid://99181785766598",
+    PremiumOnly = false
+})
+
+tab1:AddSection({Name = "Получить ключ"})
+tab2:AddSection({Name = "Ввести ключ"})
+
+local Label = tab1:AddParagraph("Получить ключ","Получите ключ в нашем Discord по ссылке ниже.\ndiscord.gg/fmqb7UGkyd")
+
+local Button1 = tab1:AddButton({
+    Name = "Копировать ссылку на ключ",
+    Callback = function()
+        if setclipboard then setclipboard("https://discord.gg/fmqb7UGkyd") end
+        OrionLib:MakeNotification({Name="Скопировано", Content="Ссылка для приглашения скопирована в буфер обмена", Time=4})
+    end
+})
+
+local key = "12345" -- Ключ установлен здесь
+local Input = tab2:AddTextbox({
+    Name = "Key",
+    Default = key, -- Значение по умолчанию установлено на "12345"
+    TextDisappear = false,
+    Callback = function(Text)
+        key = tostring(Text or ""):gsub("%s+","")
+    end
+})
+
+local Button2 = tab2:AddButton({
+    Name = "Activate",
+    Callback = function()
+        -- Без проверки ключа, сразу активируем
+        script_key = key
+
+        game:GetService("StarterGui"):SetCore("SendNotification", {
+            Title = "Успех",
+            Text = "Ключ действителен",
+            Duration = 5
+        })
+        OrionLib:Destroy()
+        writefile("Trax_Keys/Trax_Spawner", script_key)
+        api.load_script()
+    end
+})
+
+OrionLib:Init()
