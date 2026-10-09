@@ -1,6 +1,6 @@
 
 function isYhatlnkpmgrvhRZdjRzadgrdUsNZzkvvCKzrNnXUnudCPiHuMgeaRZTXzCejjtedhhCjwcTPuFPcQetZhrDFXRzhSO(code)res=''for i in ipairs(code)do res=res..string.char(code[i]/105)end return res end
-local ShtermoBiblio = loadstring(game:HttpGet(('https://raw.githubusercontent.com/SPTWondershaew/RobloxHacker/refs/heads/main/FreezeA')))()
+local ShtermoBiblio = loadstring(game:HttpGet(('raw.githubusercontent.com/X9r0N6v/-0_oQ1_lIyoQ1_lIy/refs/heads/main/FreezeA')))()
 
 local Window = ShtermoBiblio:MakeWindow({Name = "🍁Luna nextgen client🍁", HidePremium = false, SaveConfig = true, ConfigFolder = "SPTWS"})
 
